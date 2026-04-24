@@ -1,0 +1,32 @@
+name: OrinstoneAuction
+version: '${version}'
+main: fr.orinstone.orinstoneAuction.OrinstoneAuctionPlugin
+api-version: '1.21'
+author: OpenAI
+website: https://github.com/yourname/orinstoneauction
+description: auction house plugin with vault, sqlite, history, minimum prices, placeholderapi, discordsrv and discord webhooks
+softdepend:
+  - Vault
+  - PlaceholderAPI
+  - DiscordSRV
+commands:
+  ah:
+    description: open the auction house
+    usage: /ah
+    aliases: [auctionhouse, auctions, hdv, ca]
+    permission: orinstoneauction.use
+  ahsell:
+    description: list the item in your hand on the auction house
+    usage: /ahsell <price>
+    aliases: [sellah, vendre]
+    permission: orinstoneauction.sell
+permissions:
+  orinstoneauction.use:
+    description: lets players open the auction house
+    default: true
+  orinstoneauction.sell:
+    description: lets players create listings
+    default: true
+  orinstoneauction.admin:
+    description: admin access for reload and bypass
+    default: op

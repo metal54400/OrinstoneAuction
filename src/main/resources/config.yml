@@ -1,0 +1,116 @@
+storage:
+  file: auctions.db
+
+# aliases actifs dans plugin.yml: /ah, /hdv, /ca, /auctionhouse, /auctions
+# pour changer les alias, modifie aussi plugin.yml avant compilation.
+commands:
+  main-aliases:
+    - hdv
+    - ca
+
+gui:
+  titles:
+    browse: '&5%player_name% &8- &dhotel des ventes'
+    my-listings: '&5mes ventes'
+    expired: '&5objets expires'
+    history: '&5historique des ventes'
+
+placeholderapi:
+  enabled: true
+
+auction:
+  listing-duration-hours: 48
+  listing-fee: 0.0
+  sale-tax-percent: 5.0
+  max-listings-per-player: 10
+  expired-claim-days: 14
+  browse-page-size: 45
+
+history:
+  enabled: true
+  limit: 45
+
+messages:
+  prefix: '&8[&dOrinstoneAuction&8] '
+  use-small-caps: true
+  discord-link-required: '&ctu dois link ton compte discord avant de vendre. utilise &f/discord link'
+
+sounds:
+  success: ENTITY_EXPERIENCE_ORB_PICKUP
+  fail: ENTITY_VILLAGER_NO
+  open: UI_BUTTON_CLICK
+
+minimum-prices:
+  ENCHANTED_BOOK: 200
+  NETHERITE_INGOT: 400
+  NETHERITE_HELMET: 500
+  NETHERITE_CHESTPLATE: 560
+  NETHERITE_LEGGINGS: 540
+  NETHERITE_BOOTS: 580
+  NETHERITE_SWORD: 400
+  NETHERITE_PICKAXE: 400
+  NETHERITE_AXE: 400
+  NETHERITE_HOE: 200
+  DIAMOND: 20
+  DIAMOND_HELMET: 100
+  DIAMOND_CHESTPLATE: 160
+  DIAMOND_LEGGINGS: 140
+  DIAMOND_BOOTS: 80
+  DIAMOND_SWORD: 40
+  DIAMOND_PICKAXE: 60
+  DIAMOND_AXE: 60
+  DIAMOND_HOE: 40
+  TRIDENT: 600
+  TOTEM_OF_UNDYING: 450
+  SHULKER_BOX: 1200
+  WITHER_SKELETON_SKULL: 400
+  NETHER_STAR: 1200
+  BEACON: 1200
+  IRON_BLOCK: 7
+  IRON_INGOT: 0.7
+  IRON_NUGGET: 0.07
+  GOLD_BLOCK: 9
+  GOLD_INGOT: 0.9
+  GOLD_NUGGET: 0.09
+  PLAYER_HEAD: 20
+
+# DiscordSRV link requirement.
+# require-linked-to-sell: true = un joueur doit avoir link son compte DiscordSRV pour vendre.
+# allow-selling-if-missing: false = si DiscordSRV n'est pas installe/active, la vente est bloquee sauf admin.
+discordsrv:
+  require-linked-to-sell: true
+  allow-selling-if-missing: false
+
+# Webhook Discord configurable.
+# Mets ton URL ici: Server Settings > Integrations > Webhooks > Copy Webhook URL.
+discord-webhook:
+  enabled: false
+  url: 'WEBHOOK_URL_HERE'
+  username: 'OrinstoneAuction'
+  avatar-url: ''
+  events:
+    listed: true
+    sold: true
+    cancelled: false
+    expired: false
+  messages:
+    listed:
+      content: ''
+      title: 'Nouvelle vente'
+      description: '**{seller}** vend **x{amount} {item}** pour **{price}** sur **{server}**.'
+      color: 12058623
+    sold:
+      content: ''
+      title: 'Vente terminee'
+      description: '**{buyer}** a achete **x{amount} {item}** a **{seller}** pour **{price}**. payout: **{payout}**.'
+      color: 5763719
+    cancelled:
+      content: ''
+      title: 'Vente annulee'
+      description: '**{seller}** a annule **x{amount} {item}** a **{price}**.'
+      color: 15548997
+    expired:
+      content: ''
+      title: 'Vente expiree'
+      description: 'La vente de **{seller}** pour **x{amount} {item}** a expire.'
+      color: 9807270
